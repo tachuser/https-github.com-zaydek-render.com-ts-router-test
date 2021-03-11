@@ -30,6 +30,8 @@ function run() {
 		port = +process.env["PORT"]
 	}
 	router.listen(port)
+
+	console.log(`ready on port ${port}`)
 }
 
 run()
