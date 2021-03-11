@@ -46,14 +46,14 @@ export function createServer(): Server {
 				// Handle paths:
 				const handler = str_map[req.url!]
 				if (handler !== undefined) {
-					handler(req, res)
+					await handler(req, res)
 					end(req, res)
 					return
 				}
 				// Handle patterns:
 				for (const { pattern, handler } of regex_arr) {
 					if (pattern.test(req.url!)) {
-						handler(req, res)
+						await handler(req, res)
 						end(req, res)
 						return
 					}
